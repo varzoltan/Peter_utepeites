@@ -23,14 +23,54 @@ namespace Peter_utepeites
             }
 
         }
+
+        /*static List<Adat> lista = new List<Adat>();
+        static void Beolvas()//Eljárás
+        {
+            foreach (var i in File.ReadAllLines("forgalom.txt").Skip(1))
+            {
+                lista.Add(new Adat(i));
+            }
+        }*/
         static void Main(string[] args)
         {
+            /*Beolvas();
+            Console.WriteLine("1.feladat: beolvas kész!");
+            foreach(var i in lista.Take(10))
+            {
+                Console.WriteLine($"{i.ido} {i.masodperc} {i.varos}");
+            }*/
+
+            //1.feladat
             List<Adat> lista = new List<Adat>();
             foreach(var i in File.ReadAllLines("forgalom.txt").Skip(1))
             {
                 lista.Add(new Adat(i));
             }
+            Console.WriteLine("1.feladat: beolvas kész!");
 
+            //2.feladat
+            Console.WriteLine("\n2.feladat");
+            Console.Write("Adja meg hogy hanyadik autót szeretné: ");
+            int n=int.Parse(Console.ReadLine()) - 1;
+            if (lista[n].varos == "F")
+            {
+                Console.WriteLine($"Az \"n\"-dik jármű Alsó város felé halad!");
+            }
+            else
+            {
+                Console.WriteLine($"Az \"n\"-dik jármű Felső város felé halad!");
+            }
+
+            //3.feladat
+            Console.WriteLine("\n3.feladat");
+            var kulonbseg = lista.Where(x => x.varos == "A").OrderByDescending(x => x.ido);
+            /*foreach (var i in kulonbseg)
+            {
+                Console.WriteLine($"{i.ido} {i.masodperc} {i.varos}");
+            }*/
+            double kulonbozet = kulonbseg.First().ido.TotalSeconds - kulonbseg.ElementAt(1).ido.TotalSeconds;
+            Console.WriteLine($"Két jármű {kulonbozet} másodperc különbséggel érte el az útszakasz kezdetét!");
             Console.ReadKey();
         }
     }
