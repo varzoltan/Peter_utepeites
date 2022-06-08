@@ -71,6 +71,29 @@ namespace Peter_utepeites
             }*/
             double kulonbozet = kulonbseg.First().ido.TotalSeconds - kulonbseg.ElementAt(1).ido.TotalSeconds;
             Console.WriteLine($"Két jármű {kulonbozet} másodperc különbséggel érte el az útszakasz kezdetét!");
+
+            //4.feladat
+            Console.WriteLine("\n4.feladat");
+            //int elsoora = lista.First().ido.Hours;
+            //int utolsoora = lista.Last().ido.Hours;
+            Console.WriteLine("idő Alsó Felső");
+            for (int i = lista.First().ido.Hours;i<=lista.Last().ido.Hours;i++)
+            {
+                int Also= 0,Felso = 0;
+                for (int j = 0;j<lista.Count;j++)
+                {
+                    if (i == lista[j].ido.Hours)
+                    {
+                        if (lista[j].varos=="F") Felso++;
+                        else Also++;
+                    }
+                }
+                Console.WriteLine($"{i:5}óra {Also:5}db {Felso:5}db");
+            }
+
+            //5.feladat
+            Console.WriteLine("\n4.feladat");
+            var leggyorsabb = lista.OrderBy(x => x.masodperc);
             Console.ReadKey();
         }
     }
