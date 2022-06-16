@@ -70,13 +70,13 @@ namespace Peter_utepeites
                 Console.WriteLine($"{i.ido} {i.masodperc} {i.varos}");
             }*/
             double kulonbozet = kulonbseg.First().ido.TotalSeconds - kulonbseg.ElementAt(1).ido.TotalSeconds;
-            Console.WriteLine($"Két jármű {kulonbozet} másodperc különbséggel érte el az útszakasz kezdetét!");
+            Console.WriteLine($"A két jármű {kulonbozet} másodperc különbséggel érte el az útszakasz kezdetét!");
 
             //4.feladat
-            Console.WriteLine("\n4.feladat");
+            Console.WriteLine("\n4.feladat: statisztika");
             //int elsoora = lista.First().ido.Hours;
             //int utolsoora = lista.Last().ido.Hours;
-            Console.WriteLine("idő Alsó Felső");
+            Console.WriteLine($"{"idő",5} {"Alsó",7} {"Felső",7}");
             for (int i = lista.First().ido.Hours;i<=lista.Last().ido.Hours;i++)
             {
                 int Also= 0,Felso = 0;
@@ -88,7 +88,7 @@ namespace Peter_utepeites
                         else Also++;
                     }
                 }
-                Console.WriteLine($"{i:5}óra {Also:5}db {Felso:5}db");
+                Console.WriteLine($"{i,3}óra {Also,4}db {Felso,4}db");
             }
 
             //5.feladat
